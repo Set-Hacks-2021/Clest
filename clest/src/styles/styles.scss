@@ -1,0 +1,25 @@
+html, body{
+    font-size: 18px;
+    margin: 0;
+}
+
+section{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+section.landing{
+    align-content: center;
+    background-color: black;
+
+    & > h1 {
+        text-decoration: none;
+        color: white;
+        margin:0;
+        text-align: center;
+    }
+
+}
+
+
