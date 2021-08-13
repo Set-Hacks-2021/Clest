@@ -14,6 +14,10 @@ import Button from 'react-bootstrap/Button';
 import voronoi from '@turf/voronoi';
 import * as turf from '@turf/turf';
 
+import {Nav, NavItem} from 'react-bootstrap';
+import NavBar from '../components/navbar.js'
+
+
 
 
 const firebaseConfig = {
@@ -39,9 +43,11 @@ function HomePage(){
     return (
         <section className='page'>
             <Landing />
+            <NavBar />
         </section>
     );
 }
+
 
 function Landing(){
     return (
@@ -53,6 +59,8 @@ function Landing(){
         </section>
     );
 }
+
+
 
 function Login(){
 
