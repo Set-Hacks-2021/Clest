@@ -10,9 +10,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import Button from 'react-bootstrap/Button';
-//var voronoi = require('@turf/voronoi');
-import voronoi from '@turf/voronoi';
-import * as turf from '@turf/turf';
 
 import {Nav, NavItem} from 'react-bootstrap';
 import NavBar from '../components/navbar.js'
@@ -55,7 +52,6 @@ function Landing(){
             <h1>Clest</h1>
             <h2>Improve your community, one quest at a time.</h2>
             <Login />
-            <Testing />
         </section>
     );
 }
@@ -96,19 +92,6 @@ function Login(){
         </div>
     );
   
-  }
-
-  function Testing()
-  {
-    var options = {
-        bbox: [-70, 40, -60, 60]
-      };
-      var points = turf.randomPoint(100, options);
-      var voronoiPolygons = turf.voronoi(points, options);
-      
-      return(
-          voronoiPolygons
-      )
   }
 
 

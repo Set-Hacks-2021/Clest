@@ -2,6 +2,20 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import "../styles/map.scss";
 
+import collect from '@turf/collect';
+import voronoi from '@turf/voronoi';
+import buffer from '@turf/buffer';
+import turf from '@turf/turf';
+
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+
+// var drawingManager = new google.maps.drawing.DrawingManager();
+// drawingManager.setMap(map);
+
+// var p = turf.point(-74, 40);
+// var bbox = turf.bbox(p)
+// var bboxPolygon = turf.bboxPolygon(bbox);
+
 fetchAQIdata();
 
 const location = {
@@ -26,33 +40,20 @@ async function fetchAQIdata(){
   console.log(await getDataFromCity('shanghai'));
 }
 
-const LocationPin = ({ text }) => (
-  <div className="pin">
-    {/* <Icon icon={locationIcon} className="pin-icon" /> */}
-    <p className="pin-text">{text}</p>
-  </div>
-)
-
-const Map = ({ location, zoomLevel }) => (
-  <div className="map">
-    <h2 className="map-h2">Come Visit Us At Our Campus</h2>
-
-
-    <p></p>
-    <div className="google-map">
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyDJNmdmk9BmJxd6tLolaugUhmo7l5ou_4U' }}
-        defaultCenter={location}
-        defaultZoom={zoomLevel}
-      >
-        <LocationPin
-          lat={location.lat}
-          lng={location.lng}
-          text={location.address}
-        />
-      </GoogleMapReact>
-    </div>
-  </div>
-)
+function Map(){
+  return (
+    <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <Marker position={[51.505, -0.09]}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+    </MapContainer>
+  );
+}
 
 export default Map;
