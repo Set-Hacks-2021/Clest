@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import GoogleMapReact from 'google-map-react'
 import "../styles/map.scss";
 
@@ -16,7 +16,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 // var bbox = turf.bbox(p)
 // var bboxPolygon = turf.bboxPolygon(bbox);
 
-fetchAQIdata();
 
 const location = {
     address: '1600 Amphitheatre Parkway, Mountain View, california.',
@@ -25,33 +24,88 @@ const location = {
 }
 
 
-async function fetchAQIdata(){
+async function getDataFromCity(city){
   const key = 'e92a140d7bcfad9ccb8bd5fb9d3a1f532bcb88e8';
+  const response = fetch(`https://api.waqi.info/feed/${city}/?token=${key}`, {
+    method: 'GET'
+  })
 
-  async function getDataFromCity(city){
-    const response = fetch(`https://api.waqi.info/feed/${city}/?token=${key}`, {
-      method: 'GET'
-    })
+  const data = (await (await response).json())['data']
+  return data;
+}
 
-    return (await response).json()
-  }
-  
-  console.log('i ran')
-  console.log(await getDataFromCity('shanghai'));
+function MarkersGen(x,y){
+  return (
+    <Marker position={[x,y]}>
+      <Popup>
+        I am henry xiu          
+        </Popup>
+      </Marker>
+  );
 }
 
 function Map(){
+
+  function generateMarkers(){
+  
+    // const result = cities.map((city) => {
+    //   const data = await getDataFromCity(city);
+    //   return (
+    //     <Marker position={data['city']['geo']}>
+    //       <Popup>
+    //         I am {data['city']}
+    //       </Popup>
+    //     </Marker>
+    //   );
+    
+    // })
+
+    // console.log(result)
+    // return result;
+
+   
+    
+   
+
+      // for(let i = 0; i <90; i++) {
+        // var x =  Math.floor(Math.random() * 50) + 51;
+        // var y =  Math.floor(Math.random() * 6) + 1;
+        
+        
+      // }
+        // im going to go eat, then turn off liveshare when u guys are doneokok
+      
+    
+
+  }
+  
+  
+
+  
+  
+  // generateMarkers(['beijing','ottawa','toronto']);
+
+  var [jsx, setJsx] = React.useState(generateMarkers()); //getter,setter
+
+  useEffect(() => {
+    console.log(jsx)
+  }, []);
+
+
+  // const array = [<h1>wadaowk</h1>,<h1>sucj</h1>];
+
+
+  // setJsx(generateMarkers(['toronto']));
+
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+    <MapContainer center={[51.505, -0.09]} zoom={3} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[51.505, -0.09]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      <MarkersGen x ={51} y = {13}/>
+      {/* {jsx != null ? jsx : <h1>loading...</h1>}
+      {jsx} */}
     </MapContainer>
   );
 }

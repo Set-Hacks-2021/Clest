@@ -12,7 +12,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import Button from 'react-bootstrap/Button';
 
 import {Nav, NavItem} from 'react-bootstrap';
-import NavBar from '../components/navbar.js'
+import NavBar from '../components/navbar.js';
+import React from 'react';
 
 
 
@@ -60,6 +61,7 @@ function Landing(){
 
 function Login(){
 
+    const [click,setClick] = React.useState(0);
     // // var userEmail = document.getElementById("email_field").value;
     // // var userPass = document.getElementById("password_field").value;
   
@@ -83,7 +85,9 @@ function Login(){
 
     return (
         // if user is null, then display login button 
-        <div>
+        <div
+        onClick = {() =>{setClick(click+1)}}
+        >
             { user ? 
             <Button href='/map'>go to map {user.email}</Button>  // runs if user signed in
             : 
