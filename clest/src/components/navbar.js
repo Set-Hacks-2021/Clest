@@ -42,8 +42,8 @@ export default function NavBar(){
                         </Nav>
                     </Navbar.Collapse>
                     {
-                        currentUser ? <Button variant="outline-success" onClick={handleLogout}>Log Out</Button> :
-                        <Button variant="outline-success" onClick={signInWithGoogle}>Sign in with Google</Button>
+                        currentUser ? <Button variant="outline-primary" onClick={handleLogout}>Log Out</Button> :
+                        <Button variant="outline-primary" onClick={signInWithGoogle}>Sign in with Google</Button>
                     }
                     </Container>
                 </Navbar>

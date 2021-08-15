@@ -67,7 +67,7 @@
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Description</Form.Label>
-                <Form.Control as="textarea" rows={3} value={desc} onChange={(event) => setDesc(event.target.value)}/>
+                <Form.Control as="textarea" rows={3} placeholder="Description abut the Quest and the Coordinates" value={desc} onChange={(event) => setDesc(event.target.value)}/>
             </Form.Group>
             <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Picture</Form.Label>

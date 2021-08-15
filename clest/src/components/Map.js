@@ -11,7 +11,6 @@ import henry from '../assets/canada.json';
 import L from 'leaflet';
 
 
-
 function GetIcon(_iconUrl,_iconSize)
 {
   return L.icon({

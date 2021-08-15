@@ -23,6 +23,7 @@ import React from 'react';
 import ParticlesContainer from '../components/particles.js';
 
 import Map from '../components/Map';
+import Legend from '../components/Map';
 
 
 
@@ -51,24 +52,22 @@ function HomePage(){
     
     return (
         
-<>
+
     <ParticlesContainer height = '100vh'>
         <NavBar />
         <section className = 'page'>
             <div className = 'page'>
                 {/* <img className='name' src={PromLogo2} width={130} height={130}/> */}
-                <div style={{width: '70%', height: '50vh', margin: '1rem auto'}}><Map/></div>
+                <div style={{width: '100%', height: '50vh', margin: '1rem auto', border: `5px solid #4E8FB0`}}><Map/></div>
                 <h1>CLEST</h1>
                 <h2>Improving your community, one quest at a time.</h2>
-            </div>
             <Login className = 'googsignin' />
+            </div>
         </section>
         
         
     </ParticlesContainer>
    
-    </>
-
     
     );
 }

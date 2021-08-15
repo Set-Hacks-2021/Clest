@@ -32,18 +32,18 @@ div.page{
     //background-color:blue;
     width:auto;
     & > h1 {
-       width:1 00px;
-       color:green;
+       color: white;
+       font-size: 5rem;
        
     }
     & > h2 {
-        width:auto;
-        color:green;
+        color:white;
+        font-size: 2rem;
      }
 }
 
 .googsignin{
-    margin-top:100px;
+    margin-top:1em;
 }
 
 .backgroundS{
@@ -70,5 +70,50 @@ div.page{
     background-color: black;
 }
 
+
+
+.legend{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    width: 75&;
+    height:100%;
+    
+    & > div {
+        font-family: 'Hind',sans-serif;
+        width:100%;
+        padding: 1px 2px;
+        text-align: center;
+        //background-color:black;
+        color: black;
+        margin-left:10px;
+        
+     }
+
+}
+
+.first{
+    background-color: rgba(9,164,108,1)
+}
+
+.second{
+    background-color: rgba(255,227,13,1)
+}
+
+.third{
+    background-color: rgba(255,151,13,1)
+}
+
+.fourth{
+    background-color: rgba(221,12,47,1)
+}
+
+.fifth{
+    background-color: rgba(118,11,162,1)
+}
+
+.sixth{
+    background-color: rgba(141,12,40,1)
+}
 
 
