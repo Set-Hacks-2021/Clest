@@ -17,13 +17,13 @@ function ParticlesContainer({ children, height }) {
                 }
             },
             color: {
-                value: "#808080"
+                value: "#4E8FB0"
             },
             shape: {
                 type: "circle",
                 stroke: {
                 width: 5,
-                color: "#808080"
+                color: "#4E8FB0"
                 },
                 polygon: {
                     nb_sides: 3
@@ -57,7 +57,7 @@ function ParticlesContainer({ children, height }) {
             line_linked: {
                 enable: true,
                 distance: 200,
-                color: "#808080",
+                color: "#4E8FB0",
                 opacity: 1,
                 width: 0.6
             },
@@ -223,3 +223,4 @@ function ParticlesContainer({ children, height }) {
     );
 
 }
+export default ParticlesContainer;

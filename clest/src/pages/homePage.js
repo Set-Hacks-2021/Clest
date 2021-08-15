@@ -2,6 +2,8 @@ import '../styles/styles.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 
 
+// import PromLogo from '../../assets/logo1.png';
+
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -18,7 +20,10 @@ import NavBar from '../components/navbar.js';
 import Drawer from '../components/quest.js';
 import React from 'react';
 
-import ParticlesContainer from '../../particles.js';
+import ParticlesContainer from '../components/particles.js';
+
+import Map from '../components/Map';
+
 
 
 
@@ -43,17 +48,27 @@ export const auth = firebase.auth()
 const firestore = firebase.firestore()
 
 function HomePage(){
+    
     return (
-        <ParticlesContainer height = '100vh'>
+        
+<>
+    <ParticlesContainer height = '100vh'>
         <NavBar />
         <section className = 'page'>
             <div className = 'page'>
-                <h1>Clest</h1>
+                {/* <img className='name' src={PromLogo2} width={130} height={130}/> */}
+                <div style={{width: '70%', height: '50vh', margin: '1rem auto'}}><Map/></div>
+                <h1>CLEST</h1>
                 <h2>Improving your community, one quest at a time.</h2>
             </div>
             <Login className = 'googsignin' />
         </section>
-        </ParticlesContainer>
+        
+        
+    </ParticlesContainer>
+   
+    </>
+
     
     );
 }

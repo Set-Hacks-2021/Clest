@@ -7,6 +7,8 @@ import {
   ListItemText
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form'
 
 import { Add, Search } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
@@ -20,7 +22,7 @@ const useStyles = makeStyles({
 });
 
 
-export default function QuestList(){
+function QuestList({ style }){
 
   const [quests, setQuests] = useState();
   const { currentUser } = useAuth();
@@ -47,12 +49,22 @@ export default function QuestList(){
   
   
     return (
-      <div>
+      <div style={{margin: '1rem'}}>
         <img src={image} />
 
         <div>
-          <h3>{topic}</h3>
-          <p>{desc}</p>
+          <Card >
+            <Card.Body>
+              <Card.Title>{topic}</Card.Title>
+              <Card.Text>
+                {desc}
+              </Card.Text>
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Complete Quest" />
+              </Form.Group>
+
+            </Card.Body>
+          </Card>
         </div>
       
       </div>
@@ -61,7 +73,8 @@ export default function QuestList(){
     
 
   return (
-    <div style={{display: 'column'}}>
+    <div style={{display: 'column'}, style} >
+      <h1 style={{margin: '1rem'}}>Quests</h1>
       {quests && quests.map(doc => <QuestCard topic={doc.topic} desc={doc.desc} image={doc.image} />) }
     </div>
   );
@@ -70,7 +83,7 @@ export default function QuestList(){
 
 
 
-export default function Quest() {
+function Quest() {
   const history = useHistory();
   const classes = useStyles();
   const [quests, setQuests] = useState();
@@ -103,9 +116,7 @@ export default function Quest() {
       icon: <Add />,
       onClick: () => history.push("/form")
     },
-    {
-      text: '',
-    },
+
 
   ];
   return (
@@ -121,9 +132,9 @@ export default function Quest() {
           );
         })}
       </List>
-      <List>
-        {}
-      </List>
+
     </MUIDrawer>
   );
 };
+
+export {Quest, QuestList};
